@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -10,10 +11,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseUser;
+
 public class MainActivity extends AppCompatActivity {
      EditText edUsername, edPassword;
      Button btn;
      TextView tv;
+     ProgressBar progressBar;
+     FirebaseUser mAuth;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         edUsername = findViewById(R.id.username);
         edPassword = findViewById(R.id.password);
         btn = findViewById(R.id.loginbtn);
-        tv = findViewById(R.id.others2);
+        tv = findViewById(R.id.others3);
 
         btn.setOnClickListener(new View.OnClickListener(){
 
@@ -52,6 +59,14 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         startActivity(new Intent(MainActivity.this,MainActivity2.class));
+                    }
+                });
+                tv = findViewById(R.id.forgotpass);
+
+                tv.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(MainActivity.this,MainActivity5.class));
                     }
                 });
 
